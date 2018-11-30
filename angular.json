@@ -35,7 +35,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/top-collegues-front",
+            "outputPath": "dist/top-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -137,7 +137,7 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "top-collegues-front:serve:production"
+              "devServerTarget": "top-front:serve:production"
             }
           }
         },
@@ -153,5 +153,5 @@
       }
     }
   },
-  "defaultProject": "top-collegues-front"
+  "defaultProject": "top-front"
 }
