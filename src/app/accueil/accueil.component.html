@@ -1,0 +1,16 @@
+<div class="container-fluid">
+
+  <div class="row-fluid">
+    <div class=" jumbotron">
+        <app-bandeau></app-bandeau>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-9"></div>
+    <app-liste-collegues [lesCollegues]="listeCollegue"></app-liste-collegues>
+    <div class="col-3">
+      <app-historique-votes [lesVotes]="listeVotes"></app-historique-votes>
+    </div>
+  </div>
+</div>

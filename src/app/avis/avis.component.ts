@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Avis } from '../models';
 
 @Component({
   selector: 'app-avis',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./avis.component.css']
 })
 export class AvisComponent implements OnInit {
+  @Output() counterChange = new EventEmitter<Avis>()
+  @Input() tropDeHaine = true
+  @Input() tropDamour = true
+
+
+
 
   constructor() { }
 
   ngOnInit() {
   }
 
+
+
+
+
+  aimer() {
+   this.counterChange.emit(Avis.AIMER)
+  }
+
+  hair() {
+    this.counterChange.emit(Avis.DETESTER)         
+  }
 }
