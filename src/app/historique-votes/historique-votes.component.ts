@@ -12,8 +12,8 @@ export class HistoriqueVotesComponent implements OnInit {
   @Input() lesVotes :Vote[]
 @Input() col : Collegue;
 
-@Output() histoVotes = new EventEmitter()
-@Output() suppVotes = new EventEmitter()
+// @Output() histoVotes = new EventEmitter()
+// @Output() suppVotes = new EventEmitter()
 
 
 

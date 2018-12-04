@@ -7,10 +7,9 @@ export class Collegue {
         description:string;
         images:string[] ;
 
-        constructor(nom:string, score:number, description:string, images:string[]) {
+        constructor(nom:string, score:number, images:string[]) {
             this.nom  = nom
             this.score = score
-            this.description =description
             this.images = images
         }
         }

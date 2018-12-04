@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backendUrl: 'http://https://les-digi-collegues.herokuapp.com/'
 };
