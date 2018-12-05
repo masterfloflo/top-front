@@ -18,8 +18,9 @@ import { DetailsComponent } from './details/details.component';
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'apropos', component: AproposComponent},
-  { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
-  {path:':pseudo', component: DetailsComponent}  
+  {path:'collegue/:pseudo', component: DetailsComponent} ,
+  { path: '',   redirectTo: '/accueil', pathMatch: 'full' }
+  
 ];
 
 @NgModule({
