@@ -13,10 +13,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AproposComponent } from './apropos/apropos.component';
+import { DetailsComponent } from './details/details.component';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent },
-  { path: 'apropos', component: AproposComponent}  
+  { path: 'apropos', component: AproposComponent},
+  { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
+  {path:':pseudo', component: DetailsComponent}  
 ];
 
 @NgModule({
@@ -30,6 +33,7 @@ const appRoutes: Routes = [
     AccueilComponent,
     MenuComponent,
     AproposComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

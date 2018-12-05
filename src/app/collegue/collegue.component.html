@@ -1,17 +1,14 @@
 <div>
   <div>
-    <table class="table">
-      <tr>
-        {{collegue.nom}}
-        {{collegue.score}}
-      </tr>
-      {{collegue.description}}
-
-    </table>
-
+    <a routerLink="/:pseudo">
+        {{collegue.pseudo}}
+    </a>
+    <p>
+      {{collegue.score}}
+    </p>
   </div>
   <div>
-    <!--  -->
+    
     <ngb-carousel *ngIf="collegue.images">
       <ng-template ngbSlide *ngFor="let img of collegue.images">
         <img [src]="img" alt="Random first slide">
@@ -20,8 +17,6 @@
 
   </div>
 
-  <app-avis (counterChange)="notation($event)" [tropDeHaine]="tropDeHaine()"  [tropDamour]="tropDamour()"></app-avis>
+  <app-avis (counterChange)="notation($event)" [tropDeHaine]="tropDeHaine()" [tropDamour]="tropDamour()"></app-avis>
 
 </div>
-
-

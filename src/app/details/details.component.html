@@ -1,0 +1,15 @@
+<div class="container-fluid">
+
+    <img [src]="collegue.images">
+
+    {{collegue.pseudo}}
+
+    {{collegue.score}}
+  <br>
+
+  {{collegue.nom}} <br>
+  {{collegue.prenom}} <br>
+  {{collegue.email}} <br>
+  {{collegue.adresse}} <br>
+  <app-avis (counterChange)="notation($event)" [tropDeHaine]="tropDeHaine()" [tropDamour]="tropDamour()"></app-avis>
+</div>
