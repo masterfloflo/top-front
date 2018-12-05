@@ -3,7 +3,6 @@ import {environment} from '../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Collegue, Avis } from '../models';
 
-const URL_BACKEND = environment.backendUrl;
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +12,7 @@ export class CollegueService {
 
   listerCollegues():Promise<Collegue[]>  {
     // récupérer la liste des collègues côté serveur
-    return this._http.get('/collegue').toPromise()
+    return this._http.get(environment.backendUrl +'/collegue').toPromise()
     .then((tabColServeur:any[]) => tabColServeur.map(coco => new Collegue(coco.score, coco.pseudo, [coco.imageUrl])))
   }
 /*
