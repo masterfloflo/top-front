@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {environment} from '../../environments/environment';
+import {environment} from '../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Collegue, Avis } from '../models';
 
@@ -13,7 +13,7 @@ export class CollegueService {
 
   listerCollegues():Promise<Collegue[]>  {
     // récupérer la liste des collègues côté serveur
-    return this._http.get('http://localhost:8080/collegue').toPromise()
+    return this._http.get('/collegue').toPromise()
     .then((tabColServeur:any[]) => tabColServeur.map(coco => new Collegue(coco.score, coco.pseudo, [coco.imageUrl])))
   }
 /*
