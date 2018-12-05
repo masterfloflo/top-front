@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Collegue } from '../models';
-import { Avis } from '../models';
+import { Component, Input, OnInit } from '@angular/core';
+import { Avis, Collegue } from '../models';
+import { CollegueService } from '../services/collegue.service';
 
 @Component({
   selector: 'app-collegue',
@@ -11,8 +11,8 @@ import { Avis } from '../models';
 export class CollegueComponent implements OnInit {
 
   @Input() collegue: Collegue
-  
-  constructor() { }
+
+  constructor(private _collegueService:CollegueService) { }
 
   ngOnInit() {
   }
@@ -21,25 +21,28 @@ export class CollegueComponent implements OnInit {
   notation(eventAvis: Avis) {
     console.log(this.collegue.score)
 
-    if (eventAvis == Avis.AIMER) {
-      this.collegue.score += 100;
-    }
-    else {
-      this.collegue.score -= 100
-    }
+    // if (eventAvis == Avis.AIMER) {
+    //   this.collegue.score += 100;
+    // }
+    // else {
+    //   this.collegue.score -= 100
+    // }
+
+    this._collegueService.donnerUnAvis(this.collegue, eventAvis)
+                            .then(c =>this.collegue.score = c.score)
+                            .catch(e => console.log(e, "erreur lors de la publication de votre avis"))
+
   }
 
 
-    tropDamour() {
-      return this.collegue.score < 1000
-    }
-  
-  
-    tropDeHaine() {
-      return this.collegue.score > -1000
-    }
-    
+  tropDamour() {
+    return this.collegue.score < 1000
   }
-  
+  tropDeHaine() {
+    return this.collegue.score > -1000
+  }
+
+}
+
 
 

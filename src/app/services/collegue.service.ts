@@ -12,9 +12,8 @@ const httpOptions = {
   })
 };
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable(
+)
 export class CollegueService {
 
   constructor(private _http:HttpClient) { }
