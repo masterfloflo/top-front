@@ -8,8 +8,8 @@ import { Avis } from '../models';
 })
 export class AvisComponent implements OnInit {
   @Output() counterChange = new EventEmitter<Avis>()
-  @Input() tropDeHaine = true
-  @Input() tropDamour = true
+  @Input() tropDeHaine;
+  @Input() tropDamour;
 
 
 
