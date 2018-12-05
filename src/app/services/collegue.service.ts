@@ -8,7 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
+    //'Authorization': 'my-auth-token'
   })
 };
 
@@ -21,15 +21,15 @@ export class CollegueService {
   listerCollegues():Promise<Collegue[]>  {
     // récupérer la liste des collègues côté serveur
     return this._http.get(environment.backendUrl +'/collegue').toPromise()
-    .then((tabColServeur:any[]) => tabColServeur.map(coco => new Collegue(coco.score, coco.pseudo, [coco.imageUrl])))
+    .then((tabColServeur:any[]) => tabColServeur.map(coco => new Collegue(coco.pseudo, coco.score, [coco.imageUrl])))
   }
 
 
   donnerUnAvis(unCollegue:Collegue, avis:Avis):Promise<Collegue>  {
     // Aimer ou Détester un collègue côté serveur
     
-    return this._http.patch(environment.backendUrl +'/collegue', {"action":avis.toString}, httpOptions)
-    .toPromise().then((c:Collegue) => c)   
+    return this._http.patch(`${environment.backendUrl}/collegue/${unCollegue.nom}`, {"action":avis}, httpOptions)
+    .toPromise().then((c:Collegue) => c)  
   
     
     
