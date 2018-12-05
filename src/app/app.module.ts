@@ -10,6 +10,14 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CollegueService } from './services/collegue.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AproposComponent } from './apropos/apropos.component';
+
+const appRoutes: Routes = [
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'apropos', component: AproposComponent}  
+];
 
 @NgModule({
   declarations: [
@@ -20,16 +28,17 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ListeColleguesComponent,
     HistoriqueVotesComponent,
     AccueilComponent,
-    
+    MenuComponent,
+    AproposComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [CollegueService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}
 

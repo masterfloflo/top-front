@@ -21,13 +21,6 @@ export class CollegueComponent implements OnInit {
   notation(eventAvis: Avis) {
     console.log(this.collegue.score)
 
-    // if (eventAvis == Avis.AIMER) {
-    //   this.collegue.score += 100;
-    // }
-    // else {
-    //   this.collegue.score -= 100
-    // }
-
     this._collegueService.donnerUnAvis(this.collegue, eventAvis)
                             .then(c =>this.collegue.score = c.score)
                             .catch(e => console.log(e, "erreur lors de la publication de votre avis"))
