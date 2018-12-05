@@ -14,12 +14,20 @@ export class CollegueService {
   listerCollegues():Promise<Collegue[]>  {
     // récupérer la liste des collègues côté serveur
     return this._http.get('http://localhost:8080/collegue').toPromise()
-    .then((tabColServeur:any[]) => tabColServeur.map(cServeur => new Collegue(cServeur.score, cServeur.pseudo, [cServeur.imageUrl])))
+    .then((tabColServeur:any[]) => tabColServeur.map(coco => new Collegue(coco.score, coco.pseudo, [coco.imageUrl])))
   }
 /*
   donnerUnAvis(unCollegue:Collegue, avis:Avis):Promise<Collegue>  {
     // TODO Aimer ou Détester un collègue côté serveur
+    return this.http.post()
   }
+
+
+
+la méthode permet de TOUT faire : request
+
+par exemple .post (ICI ADRESSE URL  , CORPS DE LA REQUETE, OPTIONS POUR SPECIFIER LES ENTETES)
+
 */
 
 }
