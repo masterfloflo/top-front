@@ -1,0 +1,52 @@
+<script>
+  sessionStorage.redirect = location.href;
+</script>
+<meta http-equiv="refresh" content="0;URL='/REPO_NAME_HERE'">
+
+
+<!--
+
+For some time now, I’ve wanted the ability to route paths for a GitHub Pages website to its index.html for handling as a single-page app (SPA). This is table-stakes because such apps require all requests to be routed to one HTML file, unless you want to copy the same file across all of your routes every time you make a change to the project. Currently, GitHub Pages doesn’t offer a route-handling solution; the Pages system is intended to be a flat, simple mechanism for serving basic project content. In case you weren’t aware, GitHub does provide one morsel of customization for your project website: the ability to add a 404.html file and have it served as your custom error page. I took a first stab at an SPA hack simply by duplicating my index.html file and renaming the copy to 404.html. 
+For some time now, I’ve wanted the ability to route paths for a GitHub Pages website to its index.html for handling as a single-page app (SPA). This is table-stakes because such apps require all requests to be routed to one HTML file, unless you want to copy the same file across all of your routes every time you make a change to the project. Currently, GitHub Pages doesn’t offer a route-handling solution; the Pages system is intended to be a flat, simple mechanism for serving basic project content.
+In case you weren’t aware, GitHub does provide one morsel of customization for your project website: the ability to add a 404.html file and have it served as your custom error page. I took a first stab at an SPA hack simply by duplicating my index.html file and renaming the copy to 404.html. Turns out that many folks have experienced the same issue with GitHub Pages and liked the general idea. However, the problem that some folks on Twitter correctly raised was that the 404.html page is still served with a status code of 404, which is not good for search engine crawlers. The gauntlet had been thrown down, and I decided to answer — and answer with vigor!
+Further Reading on SmashingMag:
+A Simple Workflow From Development To Deployment
+Creating A Complete Web App In Foundation For Apps
+Build A Blog With Jekyll And GitHub Pages
+One More Time, With Feeling
+After sleeping on it, I thought to myself, “Self, we’re deep in dirty hack territory, so why don’t I make this hack even dirtier?!” To that end, I developed an even better hack that provides the same functionality and simplicity, while also preserving your website’s crawler juice — and you don’t even need to waste time duplicating your index.html file and renaming it to 404.html anymore! The following solution should work in all modern desktop and mobile browsers (Edge, Chrome, Firefox, Safari) and in Internet Explorer 10+.
+
+Template and Demo: If you want to skip the explanation and get the goods, here’s a template repo, and a test URL to see it in action.
+That’s So Meta
+The first thing I did was investigate other options for getting the browser to redirect to the index.html page. That part was pretty straightforward. You basically have three options: a server config, a JavaScript location manipulation, or a refresh meta tag. The first one is obviously a no-go for GitHub pages. And JavaScript is basically the same as a refresh, but arguably worse for crawler indexing. That leaves us with the meta tag. A meta tag with a refresh value of 0 appears to be treated as a 301 redirect by search engines, which works out well for this use case.
+You’ll need to start by adding a 404.html file to a gh-pages repository that contains an empty HTML document inside it. That document must total more than 512 bytes (explained below). Next, put the following markup in your 404.html page’s head element:
+<script>
+  sessionStorage.redirect = location.href;
+</script>
+<meta http-equiv="refresh" content="0;URL='/REPO_NAME_HERE'">
+Copy
+This code sets the attempted entrance URL to a variable on the standard sessionStorage object and immediately redirects to your project’s index.html page using a meta refresh tag. If you’re doing a Github Organization site, don’t put a repo name in the content attribute replacer text, just do this: content=“0;URL=‘/’”
+Customizing Route Handling
+If you want more elaborate route handling, just include some additional JavaScript logic in the script tag shown above. You can tweak several things: the composition of the href that you pass to the index.html page; which pages should remain on the 404 page (via dynamic removal of the meta tag); and any other logic you want to put in place to dictate what content is shown based on the inbound route.
+512 Magical Bytes
+This is, hands down, one of the strangest quirks I have ever encountered in web development. You must ensure that the total size of your 404.html page is greater than 512 bytes, because if it isn’t, Internet Explorer will disregard it and show a generic browser 404 page instead. When I finally figured this out, I had to crack open a beer to cope with the amount of time it took.
+Let’s Make History
+To capture and restore the URL that the user initially navigated to, you’ll need to add the following script tag to the head of your index.html page before any other JavaScript acts on the page’s current state:
+<script>
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+Copy
+This bit of JavaScript retrieves the URL that we cached in sessionStorage over on the 404.html page and replaces the current history entry with it. How you choose to handle things from here is up to you, but I’d use popstate and hashchange if I were you.
+Well, folks, that’s it. Now go celebrate by writing some single-page apps on GitHub Pages! 
+This article is part of a web development series from Microsoft tech evangelists and engineers on practical JavaScript learning, open-source projects and interoperability best practices, including Microsoft Edge browser.
+
+We encourage you to test across browsers and devices (including Microsoft Edge — the default browser for Windows 10) with free tools on dev.microsoftedge.com, including the F12 developer tools: seven distinct, fully documented tools to help you debug, test and speed up your web pages. Also, visit the Edge blog to stay informed by Microsoft developers and experts.
+
+
+-->
