@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Collegue, Avis } from '../models';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { AddCollegue } from '../ajouter-un-collegue/models_add';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,6 +18,7 @@ const httpOptions = {
 export class CollegueService {
 
   constructor(private _http:HttpClient) { }
+
 
   listerCollegues():Promise<Collegue[]>  {
     // récupérer la liste des collègues côté serveur
@@ -37,7 +38,11 @@ export class CollegueService {
     return this._http.get<Collegue>(`${environment.backendUrl}/collegue/${pseudo}`)
   }
 
-
+  addCollegue(addCollegue:AddCollegue):Promise<AddCollegue>  {
+    
+    return this._http.post(`${environment.backendUrl}/collegue`, addCollegue, httpOptions)
+    .toPromise().then((c: AddCollegue) => c = new AddCollegue)  
+  }
 
 }
 

@@ -14,12 +14,15 @@ import { MenuComponent } from './menu/menu.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AproposComponent } from './apropos/apropos.component';
 import { DetailsComponent } from './details/details.component';
+import { AjouterUnCollegueComponent } from './ajouter-un-collegue/ajouter-un-collegue.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'apropos', component: AproposComponent},
+  { path: 'collegue/nouveau', component: AjouterUnCollegueComponent},
   {path:'collegue/:pseudo', component: DetailsComponent} ,
-  { path: '',   redirectTo: '/accueil', pathMatch: 'full' }
+  { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
   
 ];
 
@@ -35,10 +38,12 @@ const appRoutes: Routes = [
     MenuComponent,
     AproposComponent,
     DetailsComponent,
+    AjouterUnCollegueComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     NgbModule,
     RouterModule.forRoot(appRoutes)
   ],

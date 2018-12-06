@@ -1,17 +1,25 @@
-<div class="container-fluid" >
+<div class="container-fluid">
+  <div class="justify-content-center">
+<!--
+        <img [src]="{{collegue.images}}">
 
-    <img [src]="collegue.images">
+
+-->
 
     {{collegue.pseudo}}
 
     {{collegue.score}}
-  <br>
-  <p>
-    Nom : {{collegue.nom}} <br>
-    Prénom : {{collegue.prenom}} <br>
-    Adresse : {{collegue.adresse}} <br>
-    Email : {{collegue.email}}
-  </p>
+    <br>
+    <p>
+      Nom : {{collegue.nom}} <br>
+      Prénom : {{collegue.prenom}} <br>
+      Adresse : {{collegue.adresse}} <br>
+      Email : {{collegue.email}}
+    </p>
 
-  <app-avis></app-avis>
+    <app-avis (counterChange)="notation($event)" [tropDeHaine]="tropDeHaine()" [tropDamour]="tropDamour()"></app-avis>
+
+  </div>
+
+
 </div>
