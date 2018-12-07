@@ -9,7 +9,7 @@ import { Collegue, Avis } from '../models';
 })
 export class DetailsComponent implements OnInit {
   @Input() collegue: Collegue
-@Input() avis: Avis
+  @Input() avis: Avis
   pseudo: string;
 
   constructor(private route:ActivatedRoute, private cs:CollegueService) { 
