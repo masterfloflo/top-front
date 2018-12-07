@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+.scoreP {
+    color:green;
+    font-size: 130%
+    }
+    .scoreM {
+        color:red;
+        font-size: 130%
+    
+        }
+    .scoreN {
+        color:black;
+        font-size: 130%
+    
+    }

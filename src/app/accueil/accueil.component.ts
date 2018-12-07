@@ -15,7 +15,9 @@ export class AccueilComponent implements OnInit {
   listeVotes: Vote[] = []
 
   ngOnInit() {
-    this._collegueService.listerCollegues().then(cols => this.listeCollegue = cols)
+    this._collegueService.listerCollegues()
+    .then(cols => this.listeCollegue = cols)
+    .catch(e => (console.log("erreur systeme", e)))
   }
   
 

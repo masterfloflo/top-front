@@ -5,14 +5,14 @@ import { CollegueService } from '../services/collegue.service';
 @Component({
   selector: 'app-collegue',
   templateUrl: './collegue.component.html',
-  styleUrls: ['./collegue.component.css']
+  styleUrls: ['./collegue.component.css'],
 
 })
 export class CollegueComponent implements OnInit {
 
   @Input() collegue: Collegue
 
-  constructor(private _collegueService:CollegueService) { }
+  constructor(private _collegueService: CollegueService) { }
 
   ngOnInit() {
   }
@@ -22,8 +22,8 @@ export class CollegueComponent implements OnInit {
     console.log(this.collegue.score)
 
     this._collegueService.donnerUnAvis(this.collegue, eventAvis)
-                            .then(c =>this.collegue.score = c.score)
-                            .catch(e => console.log(e, "erreur lors de la publication de votre avis"))
+      .then(c => this.collegue.score = c.score)
+      .catch(e => console.log(e, "erreur lors de la publication de votre avis"))
 
   }
 

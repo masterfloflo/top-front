@@ -1,9 +1,10 @@
 <div>
   <div>
     <a routerLink="/collegue/{{collegue.pseudo}}">
-        {{collegue.pseudo}}
+         {{ collegue.pseudo | uppercase }}
     </a>
-      {{collegue.score}} <br>
+    <div [innerHTML] ="collegue.score | score">
+    </div> <br>
   </div>
   <div>
     

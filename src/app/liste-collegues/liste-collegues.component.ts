@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Collegue } from '../models';
 import { AjouterUnCollegueComponent } from '../ajouter-un-collegue/ajouter-un-collegue.component';
+
 @Component({
   selector: 'app-liste-collegues',
   templateUrl: './liste-collegues.component.html',
