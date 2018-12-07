@@ -5,7 +5,6 @@ before_script:
   - npm install
 script:
   - npm run build
-  - cp dist/top-front/index.html dist/top-front/404.html
 deploy:
   local-dir: dist/top-front
   provider: pages
