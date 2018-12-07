@@ -5,14 +5,17 @@ import { AjouterUnCollegueComponent } from '../ajouter-un-collegue/ajouter-un-co
 @Component({
   selector: 'app-liste-collegues',
   templateUrl: './liste-collegues.component.html',
-  styleUrls: ['./liste-collegues.component.css']
+  styleUrls: ['./liste-collegues.component.css'],
 })
 export class ListeColleguesComponent implements OnInit {
 
+  filtrage:string
 
   @Input() lesCollegues:Collegue[]
   @Input() ajout:AjouterUnCollegueComponent
   constructor() { }
+   
+
 
   ngOnInit() {
   }
