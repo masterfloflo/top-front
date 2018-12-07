@@ -23,7 +23,7 @@ export class CollegueService {
   listerCollegues():Promise<Collegue[]>  {
     // récupérer la liste des collègues côté serveur
     return this._http.get(environment.backendUrl +'/collegue').toPromise()
-    .then((tabColServeur:any[]) => tabColServeur.map(coco => new Collegue(coco.pseudo, coco.score, [coco.imageUrl],coco.nom, coco.prenom, coco.adresse, coco.email)))
+    .then((tabColServeur:any[]) => tabColServeur.map(coco => new Collegue(coco.pseudo, coco.score, coco.imageUrl,coco.nom, coco.prenom, coco.adresse, coco.email)))
   }
 
 

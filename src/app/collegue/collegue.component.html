@@ -7,13 +7,8 @@
     </div> <br>
   </div>
   <div>
-    
-    <ngb-carousel *ngIf="collegue.images">
-      <ng-template ngbSlide *ngFor="let img of collegue.images">
-        <img [src]="img" alt="Random first slide">
-      </ng-template>
-    </ngb-carousel>
-
+    <img [src]="collegue.images" alt="">
+      
   </div>
 
   <app-avis (counterChange)="notation($event)" [tropDeHaine]="tropDeHaine()" [tropDamour]="tropDamour()"></app-avis>

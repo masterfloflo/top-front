@@ -21,18 +21,4 @@ export class ListeColleguesComponent implements OnInit {
   }
 
 
-/*   Bouton rafraichir à terminer
-  @Output() rafraichir = new EventEmitter<Collegue[]>()
-
-  refresh() {
-    this.rafraichir.emit(this.lesCollegues)
-   }
-  
-
-  ref(refresh : Collegue {
-    if (this.lesCollegues.score !== 0 ) {
-      this.lesCollegues.score = 0;
-    }
-}
-*/
 }
