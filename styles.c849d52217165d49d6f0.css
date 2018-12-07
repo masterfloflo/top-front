@@ -1,4 +1,4 @@
-.scoreP{color:green;font-size:130%}.scoreM{color:red;font-size:130%}.scoreN{color:#000;font-size:130%}/*!
+.scoreP{color:green;font-size:130%}.scoreM{color:red;font-size:130%}.scoreN{color:#000;font-size:130%}.formCollegue{display:flex;justify-content:center;align-items:center;flex-direction:column;margin:auto auto 50px;width:20%}.formCollegue input{margin:1% 0;width:100%;padding:10px;background-color:#ededed;border:0}.formCollegue button{margin-top:25px}#blocs{display:flex;justify-content:space-around;align-items:flex-start}#blocCollegue{width:100%}/*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
